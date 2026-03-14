@@ -65,3 +65,21 @@ form.addEventListener('submit', function(e){
         alert("Oops! Error submitting the form.");
     });
 });
+
+
+// Mobile version
+const hamburger = document.querySelector('.hamburger');
+const navbar = document.querySelector('.navbar');
+const navbarWrapper = document.querySelector('.navbar-wrapper');
+
+hamburger.addEventListener('click', () => {
+    navbar.classList.toggle('show'); // toggles visibility
+});
+
+// Optional: click outside to close
+window.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && !hamburger.contains(e.target)) {
+        navbar.classList.remove('show');
+    }
+});
+
