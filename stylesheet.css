@@ -111,6 +111,21 @@ html{
     align-items: center;
     padding: 70px 10% 0;
 }
+/* Mobile background image fix */
+@media (max-width: 768px) {
+    .home {
+        background: linear-gradient(rgba(15, 64, 93, 0.7), rgba(15, 64, 93, 0.7)), url(images/1.png) no-repeat;
+        background-size: cover;
+        background-position: top center;
+    }
+}
+@media (max-width: 480px) {
+    .home {
+        background: linear-gradient(rgba(15, 64, 93, 0.8), rgba(15, 64, 93, 0.8)), url(images/1.png) no-repeat;
+        background-size: cover;
+        background-position: 30% center;
+    }
+}
 .home-content {
     max-width: 600px;
 }
@@ -618,47 +633,6 @@ html{
 
 
 
-/* ===== Responsive ===== */
-@media(max-width:1024px){
-    .contact-pro{
-        grid-template-columns:1fr;
-        gap:2rem;
-    }
-    .contact-divider{
-        display:none;
-    }
-    .connect-left{
-        padding-right:0;
-    }
-    .contact-pill{
-        width:100%;
-        max-width:none;
-    }
-}
-@media(max-width:640px){
-    .connect-title{
-        font-size:1.4rem;
-    }
-    .connect-sub{
-        font-size:.98rem;
-    }
-    .contact-pill{
-        padding:.85rem 1rem;
-        border-radius:12px;
-        font-size:.98rem;
-    }
-    .pill-icon{
-        width:34px;
-        height:34px;
-    }
-    .message-panel{
-        padding:1rem;
-        border-radius:14px;
-    }
-}
-
-
-
 
 /* ===== Achievements Section ===== */
 .achievements{
@@ -837,69 +811,74 @@ html{
     cursor: pointer;
 }
 
-/* Dropdown three-dot for extra nav items */
+/* Dropdown three-dot for extra nav items - REMOVED - using hamburger instead */
 .nav-extra {
     display: none;
-    flex-direction: column;
-    background: #0c1d3e;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 200px;
-    border-radius: 0 0 8px 8px;
-    padding: 15px;
-    gap: 12px;
-    z-index: 99;
 }
 
-.nav-extra a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.nav-extra.show {
-    display: flex;
-}
-
-@media(max-width: 768px){
+/* Tablet and Mobile Responsive Fixes */
+@media(max-width: 1024px){
+    /* Convert navbar to hamburger menu at tablet size too */
     .navbar {
         position: absolute;
         top: 100%;
-        right: 0;
+        right: -100%;
         background: #0c1d3e;
         flex-direction: column;
-        width: 200px;
-        padding: 20px;
-        gap: 15px;
-        display: none; /* initially hidden */
-        border-radius: 0 0 8px 8px;
+        width: 280px;
+        padding: 25px;
+        gap: 20px;
+        display: flex;
+        border-radius: 0 0 0 20px;
         z-index: 100;
+        transition: right 0.3s ease;
+        box-shadow: -5px 10px 30px rgba(0, 0, 0, 0.3);
+        overflow-x: visible;
+    }
+
+    .navbar.show {
+        right: 0;
     }
 
     .navbar a {
         opacity: 1 !important;
+        width: 100%;
+        padding: 10px 15px;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+
+    .navbar a:hover {
+        background: rgba(14, 239, 255, 0.1);
+    }
+
+    .navbar a.active {
+        border-bottom: none;
+        background: rgba(14, 239, 255, 0.15);
+        padding-bottom: 10px;
+    }
+
+    .nav-resume {
+        text-align: center;
+        margin-top: 5px;
     }
 
     .hamburger {
         display: block;
+        z-index: 101;
     }
 
-    .navbar.show {
-        display: flex;
-    }
-}
-
-@media(max-width:1024px){
-    /* Navbar scrollable */
-    .navbar {
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        gap: 15px;
-        padding-bottom: 10px;
-    }
-    .navbar a {
-        flex: 0 0 auto;
+    /* Add overlay when menu is open */
+    body.menu-open::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 99;
+        backdrop-filter: blur(3px);
     }
 
     /* Home section adjustments */
@@ -1031,6 +1010,19 @@ html{
     }
 }
 
+/* Remove the old 768px media query that was conflicting */
+@media(max-width: 768px){
+    /* This is now handled by the 1024px query above */
+    /* Keeping only very small screen adjustments */
+    .header {
+        padding: 15px 5%;
+    }
+    
+    .navbar {
+        width: 250px;
+    }
+}
+
 /* Extra small screens (phones) */
 @media(max-width:480px){
     .home-content h1 {
@@ -1072,5 +1064,9 @@ html{
     .btn-box {
         padding: 8px 20px;
         font-size: 13px;
+    }
+    
+    .home {
+        background-position: 25% center;
     }
 }

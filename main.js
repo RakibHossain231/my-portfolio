@@ -67,19 +67,59 @@ form.addEventListener('submit', function(e){
 });
 
 
-// Mobile version
+// Mobile version - Updated for better functionality
 const hamburger = document.querySelector('.hamburger');
 const navbar = document.querySelector('.navbar');
-const navbarWrapper = document.querySelector('.navbar-wrapper');
+const body = document.body;
 
-hamburger.addEventListener('click', () => {
-    navbar.classList.toggle('show'); // toggles visibility
-});
-
-// Optional: click outside to close
-window.addEventListener('click', (e) => {
-    if (!navbar.contains(e.target) && !hamburger.contains(e.target)) {
-        navbar.classList.remove('show');
+// Toggle menu on hamburger click
+hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navbar.classList.toggle('show');
+    
+    // Add/remove body class for overlay
+    if (navbar.classList.contains('show')) {
+        body.classList.add('menu-open');
+        // Change hamburger icon to X (optional)
+        hamburger.innerHTML = '<i class="fas fa-times"></i>';
+    } else {
+        body.classList.remove('menu-open');
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
     }
 });
 
+// Close menu when clicking on a nav link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navbar.classList.remove('show');
+        body.classList.remove('menu-open');
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+});
+
+// Close menu when clicking outside
+window.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && !hamburger.contains(e.target) && navbar.classList.contains('show')) {
+        navbar.classList.remove('show');
+        body.classList.remove('menu-open');
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+});
+
+// Close menu on escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navbar.classList.contains('show')) {
+        navbar.classList.remove('show');
+        body.classList.remove('menu-open');
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+});
+
+// Handle window resize - close menu if window becomes larger than mobile breakpoint
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024) {
+        navbar.classList.remove('show');
+        body.classList.remove('menu-open');
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+});
