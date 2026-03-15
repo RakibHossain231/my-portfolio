@@ -757,16 +757,37 @@ html{
 
 
 /* === Footer === */
-    footer {
-      background: #0c1d3e;
-      color: var(--text-light);
-      text-align: center;
-      padding: 2rem;
-      font-size: 1rem;
-      border-top: 1px solid rgba(52, 145, 244, .1);
-    }
+.footer {
+    text-align: center;
+    background: #0c1d3e;
+    color: var(--text-light);
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 12px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border-top: 1px solid rgba(52, 145, 244, .1);
+}   
 
+.powered {
+    opacity: 0.7;
+    font-size: 0.7rem;
+}
 
+.credit {
+    color: #ffd966;
+    font-weight: 700;
+    text-shadow: 0 1px 0 #4a3720;
+    font-size: 0.9rem;
+    background: rgba(0,0,0,0.2);
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid #dba959;
+}
 
 
 
@@ -1091,3 +1112,6 @@ html{
         background-position: 25% center;
     }
 }
+
+
+
