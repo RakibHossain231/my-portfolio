@@ -651,7 +651,33 @@ html{
     box-shadow:0 18px 34px rgba(14,239,255,0.38);
     filter:brightness(1.04);
 }
+/*Feedback after message sent*/
+#success-msg {
+    display: none; /* hidden by default */
+    background: #0f0f0f; /* dark portfolio tone */
+    border: 2px solid #00ffe7; /* accent border */
+    color: #00ffe7; /* text color */
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+}
 
+#success-msg.show {
+    display: block;
+    animation: slideDown 0.5s ease;
+}
+
+/* Optional: slide down animation */
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
 
 
 
@@ -727,39 +753,13 @@ html{
     color:#061723;
     border-color:#0ef;
 }
-/*Feedback after message sent*/
-#success-msg {
-    display: none; /* hidden by default */
-    background: #0f0f0f; /* dark portfolio tone */
-    border: 2px solid #00ffe7; /* accent border */
-    color: #00ffe7; /* text color */
-    padding: 20px 25px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-    font-weight: 600;
-    font-size: 1rem;
-    text-align: center;
-    margin-top: 20px;
-    transition: all 0.3s ease;
-    position: relative;
-}
 
-#success-msg.show {
-    display: block;
-    animation: slideDown 0.5s ease;
-}
-
-/* Optional: slide down animation */
-@keyframes slideDown {
-    0% { opacity: 0; transform: translateY(-20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
 
 
 /* === Footer === */
 .footer {
     text-align: center;
-    background: #0c1d3e;
+    background: #0f0f0f;
     color: var(--text-light);
     font-size: 0.8rem;
     text-align: center;
@@ -779,14 +779,15 @@ html{
 }
 
 .credit {
-    color: #ffd966;
+    color: #00ffe7;
     font-weight: 700;
     text-shadow: 0 1px 0 #4a3720;
     font-size: 0.9rem;
     background: rgba(0,0,0,0.2);
     padding: 2px 8px;
     border-radius: 20px;
-    border: 1px solid #dba959;
+    border: 1px solid #0ef;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
 
