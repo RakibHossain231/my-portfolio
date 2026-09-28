@@ -1,5 +1,5 @@
 var typed = new Typed(".text", {
-    strings:["Cyber Security Enthusiast", "Networking Learner", "Future Security Analyst"],
+    strings:["Cyber Security Enthusiast", "Networking Learner", "Future Security Analyst", "ML Researcher"],
     typeSpeed:100,
     backSpeed:100,
     backDelay:1000,
