@@ -778,12 +778,32 @@ html{
     border-radius:20px;
     font-size:13px;
     color:#cfd8dc;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     transition:.3s;
 }
 .badge:hover{
     background:#0ef;
     color:#061723;
     border-color:#0ef;
+}
+.badge-gold{
+    border-color: #ffd700 !important;
+    color: #ffd700 !important;
+}
+.badge-gold:hover{
+    background: #ffd700 !important;
+    color: #0c1d3e !important;
+}
+.tag.badge-gold{
+    border-color: #ffd700 !important;
+    color: #ffd700 !important;
+}
+.tag.badge-gold:hover{
+    background: #ffd700 !important;
+    color: #0c1d3e !important;
 }
 
 
