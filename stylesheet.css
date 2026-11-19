@@ -54,7 +54,7 @@ html{
 .navbar {
     display: flex;          
     flex-wrap: nowrap;      
-    gap: 35px;              
+    gap: clamp(14px, 1.8vw, 28px);              
 }
 .navbar a {
     display: flex;           
@@ -295,6 +295,103 @@ html{
 
 .about-text .btn-box {
     margin-top: 10px;
+}
+
+
+
+
+/*===== Education Section =====*/
+.education{
+    padding: 100px 10%;
+}
+.education-text{
+    text-align: center;
+}
+.education-text h2{
+    font-size: 60px;
+}
+.education-text h2 span{
+    color: #0ef;
+}
+.education-text p{
+    margin-top: 10px;
+    font-size: 20px;
+}
+.education-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+.education-card{
+    background: #0c1d3e;
+    padding: 26px 22px;
+    border-radius: 15px;
+    border: 1px solid rgba(14,239,255,0.3);
+    transition: .5s;
+    display: flex;
+    flex-direction: column;
+}
+.education-card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px #0ef;
+    border-color: #0ef;
+}
+.education-card .edu-header{
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+.education-card .edu-icon{
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 12px;
+    background: rgba(14,239,255,0.1);
+    border: 1px solid #0ef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0ef;
+    font-size: 20px;
+}
+.education-card .edu-title-group h3{
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 600;
+    line-height: 1.3;
+}
+.education-card .edu-title-group h4{
+    font-size: 15px;
+    color: #0ef;
+    font-weight: 500;
+    margin-top: 4px;
+}
+.education-card .edu-duration{
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 12px;
+    color: #cfd8dc;
+    background: rgba(14,239,255,0.08);
+    border: 1px solid rgba(14,239,255,0.25);
+    padding: 4px 12px;
+    border-radius: 15px;
+    margin-bottom: 12px;
+}
+.education-card .edu-focus{
+    font-size: 14px;
+    color: #0ef;
+    margin-bottom: 8px;
+}
+.education-card .edu-desc{
+    font-size: 14.5px;
+    color: #cfd8dc;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+.education-card .badges{
+    margin-top: 15px;
 }
 
 
@@ -1034,6 +1131,17 @@ html{
         margin-bottom: 12px;
     }
 
+    /* Education Section */
+    .education-text h2 {
+        font-size: 42px;
+    }
+    .education-text p {
+        font-size: 16px;
+    }
+    .education-container {
+        grid-template-columns: 1fr;
+    }
+
     /* Skills Section */
     .skills-text h2 {
         font-size: 42px;
@@ -1155,6 +1263,7 @@ html{
         font-size: 14px;
     }
 
+    .education-text h2,
     .skills-text h2,
     .projects-text h2,
     .experience-text h2,
@@ -1163,6 +1272,7 @@ html{
         font-size: 36px;
     }
 
+    .education-text p,
     .skills-text p,
     .projects-text p,
     .experience-text p,
