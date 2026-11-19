@@ -117,7 +117,7 @@ document.addEventListener('keydown', (e) => {
 
 // Handle window resize - close menu if window becomes larger than mobile breakpoint
 window.addEventListener('resize', () => {
-    if (window.innerWidth > 1024) {
+    if (window.innerWidth > 1180) {
         navbar.classList.remove('show');
         body.classList.remove('menu-open');
         hamburger.innerHTML = '<i class="fas fa-bars"></i>';
